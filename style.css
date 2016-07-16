@@ -1,0 +1,269 @@
+/**
+ * Import Google Fonts
+ */
+
+@import 'https://fonts.googleapis.com/css?family=Old+Standard+TT';
+
+/**
+ * Primary CSS
+ */
+
+body {
+	padding: 32px;
+}
+
+input, textarea {
+    font-size: 16px;
+}
+
+header {
+    padding: 30px 18px;
+}
+
+#header-branding {
+    font-family: "Old Standard TT";
+    font-size: 42px;
+    line-height: 1em;
+    padding: 15px 22px;
+}
+main {
+	padding: 60px 40px;
+}
+
+.content {
+	width: 1251px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+#orderform {
+    width: 100%;
+}
+
+#ordertotalwrapper {
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+#collections {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.collection {
+	width: 21%;
+    margin: calc(2% - 1px);
+    border: 1px solid rgba(0,0,0,.2);
+    opacity: .5;
+    transition: opacity .25s ease;
+    position: relative;
+    bottom: 0;
+}
+
+.collection:hover,
+.collection.active {
+    opacity: 1;
+    transition: opacity .25s ease;
+}
+
+.collectiontitle {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(0,0,0,.1);
+    margin: 0;
+}
+
+.packagemain {
+    padding: 0 20px;
+    position: relative;
+}
+
+.packageinfo h6 {
+    display: inline-block;
+}
+
+.packageinfo h6:nth-child(2) {
+    float: right;
+}
+
+.collectioninput {
+    padding: 5px 0;
+    width: 100%
+}
+
+.collectioninput:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    clear: both;
+}
+
+.packagemain label:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    clear: both;
+}
+
+.packagemain label {
+    width: 100%;
+}
+
+.packagemain label span {
+    float: left;
+}
+
+.packagemain label input {
+    float: right;
+    width: 50px;
+    font-size: 16px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.collection#signature .collectioninput > input {
+    width: calc(23% - 1px);
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 1px solid black;
+    border-right: 0;
+    display: inline;
+}
+
+.collection#keepsake .collectioninput >input {
+    width: 50px;
+    text-align: center;
+    float: right;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 1px solid black;
+    border-right: 0;
+}
+
+.discounttext {
+    font-size: 12px;
+    position: relative;
+    display: flex;
+}
+
+.discounttext:before {
+    content: '*';
+    display: block;
+    position: absolute;
+    left: -10px
+}
+
+#photoselect div label input {
+   margin-right:100px;
+}
+
+#photoselect .ck-button {
+    margin: 4px;
+    background-color: #EFEFEF;
+    border-radius: 0px;
+    overflow: auto;
+    display: inline-block;
+}
+
+#photoselect .ck-button:hover {
+}
+
+#photoselect .ck-button label {
+    float:left;
+    width: 2.2em;
+}
+
+#photoselect .ck-button label span {
+    text-align:center;
+    padding: 3px 0px;
+    display:block;
+}
+
+#photoselect .ck-button label input {
+    display: none;
+}
+
+#photoselect .ck-button input:checked + span {
+    background-color:#911;
+    color:#fff;
+}
+th,td {
+    border-collapse: collapse;
+    height: 20px;
+    font-size: 16px;
+}
+#alacarteform th {
+    border: 1px solid rgba(0,0,0,.1)
+}
+
+#alacarteform td {
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+/**
+ * Order totals
+ */
+
+#ordertotaltitle {
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    background-color: rgba(0,0,0,.1);
+    text-align: center;
+}
+
+#ordertotalmain {
+    padding: 10px;
+}
+
+#ordertotal {
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 0 20px;
+}
+
+#ordertotalinner {
+    width: 50%;
+    margin: auto;
+}
+
+#totalright {
+    float: right;
+}
+
+.total {
+    width: 50%;
+    margin: 10px auto;
+}
+
+/**
+ * Begin responsive design
+ */
+
+@media only screen and (min-width: 768px) and (max-width: 1300px) {
+    #collections {
+        width: 600px;
+        margin: auto;
+    }
+    
+    .collection {
+        width: 46%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #collections {
+        width: 100%;
+    }
+    
+    .collection {
+        width: 290px;
+        margin: 10px auto;
+    }
+}

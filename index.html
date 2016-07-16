@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Order Form
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    </script>
+    <script src="order.js">
+    </script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    </link>
+</head>
+
+<body>
+    <header>
+        <div id="header-branding">
+            <p>
+                Walter & Walters
+            </p>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div id="orderform">
+                <form>
+                    <div class="step" id="collection">
+                        <div class="steptitle">
+                            <h3>
+                                Step 1 - Choose your Collection
+                            </h3>
+                        </div>
+                        <div class="instructions">
+                            <p>
+                                Select your desired collection and list your image selections for loose prints included with your collection. Image numbers can be found below each image on your proof sheet. Image numbers should be listed as the last 3 digits of the proof reference #.
+                            </p>
+                            <p>
+                                <em>
+                                    Example:
+                                </em> Image # 001_yourname_105 can be listed as simply "105"
+                            </p>
+                        </div>
+                        <div id="collections">
+                            <div class="collection active" id="heirloom">
+                                <h5 class="collectiontitle">
+                                    Heirloom Collection (50pg)
+                                </h5>
+                                <div class="packagemain">
+                                    <div class="packageinfo">
+                                        <h6>
+                                            Package Collections
+                                        </h6>
+                                        <h6>
+                                            Image #
+                                        </h6>
+                                    </div>
+                                    <div class="collectioninput">
+                                        <label>
+                                            <span>
+                                                8x10 Print for Folio
+                                            </span>
+                                            <input type="text">
+                                            </input>
+                                        </label>
+                                    </div>
+                                    <div class="collectioninput">
+                                        <label>
+                                            <span>
+                                                8x10 Print for Folio
+                                            </span>
+                                            <input type="text">
+                                            </input>
+                                        </label>
+                                    </div>
+                                    <p>
+                                        Includes digital file of all selected package prints.
+                                    </p>
+                                    <p class="discounttext">
+                                        Album collections qualify for 40% discount on all a-la-carte orders.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="collection" id="signature">
+                                <h5 class="collectiontitle">
+                                    Signature Collection (36pg)
+                                </h5>
+                                <div class="packagemain">
+                                    <div class="packageinfo">
+                                        <h6>
+                                            Package Collections
+                                        </h6>
+                                        <h6>
+                                            Image #
+                                        </h6>
+                                    </div>
+                                    <div class="collectioninput">
+                                        <label>
+                                            <span>
+                                                5x7 Prints (x5)
+                                            </span>
+                                            <input type="text">
+                                            </input>
+                                        </label>
+                                    </div>
+                                    <div class="collectioninput">
+                                        <input type="text">
+                                        <input type="text">
+                                        <input type="text">
+                                        <input type="text">
+                                        </input>
+                                        </input>
+                                        </input>
+                                        </input>
+                                    </div>
+                                    <p>
+                                        Includes digital file of all selected package prints.
+                                    </p>
+                                    <p class="discounttext">
+                                        Album collections qualify for 40% discount on all a-la-carte orders.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="collection" id="keepsake">
+                                <h5 class="collectiontitle">
+                                    Keepsake Collection (24pg)
+                                </h5>
+                                <div class="packagemain">
+                                    <div class="packageinfo">
+                                        <h6>
+                                            Package Collections
+                                        </h6>
+                                        <h6>
+                                            Image #
+                                        </h6>
+                                    </div>
+                                    <div class="collectioninput">
+                                        <label>
+                                            <span>
+                                                5x7 Prints (x3)
+                                            </span>
+                                            <input type="text">
+                                            </input>
+                                        </label>
+                                    </div>
+                                    <div class="collectioninput">
+                                        <input type="text">
+                                        </input>
+                                    </div>
+                                    <div class="collectioninput">
+                                        <input type="text">
+                                        </input>
+                                    </div>
+                                    <p class="discounttext">
+                                        Album collections qualify for 40% discount on all a-la-carte orders.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="collection" id="no-album">
+                                <h5 class="collectiontitle">
+                                    No Album
+                                </h5>
+                                <div class="packagemain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step" id="selection">
+                        <div class="steptitle">
+                            <h3>
+                                Step 2 - Select the Images for Your Album
+                            </h3>
+                        </div>
+                        <div class="instructions">
+                            <p>
+                                Select the image numbers that you would like to feature in your album. Please select only image numbers to be included INSIDE the album.
+                            </p>
+                            <p>
+                                <em>
+                                    *Albums are available in listed page counts only.
+                                </em>
+                            </p>
+                        </div>
+                        <div id="photoselect">
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img1" name="imgselect" type="checkbox" value="1">
+                                    <span>
+                                            1
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img2" name="imgselect" type="checkbox" value="2">
+                                    <span>
+                                            2
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img3" name="imgselect" type="checkbox" value="3">
+                                    <span>
+                                            3
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img4" name="imgselect" type="checkbox" value="4">
+                                    <span>
+                                            4
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img5" name="imgselect" type="checkbox" value="5">
+                                    <span>
+                                            5
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img6" name="imgselect" type="checkbox" value="6">
+                                    <span>
+                                            6
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img7" name="imgselect" type="checkbox" value="7">
+                                    <span>
+                                            7
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img8" name="imgselect" type="checkbox" value="8">
+                                    <span>
+                                            8
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img9" name="imgselect" type="checkbox" value="9">
+                                    <span>
+                                            9
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img10" name="imgselect" type="checkbox" value="10">
+                                    <span>
+                                            10
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img11" name="imgselect" type="checkbox" value="11">
+                                    <span>
+                                            11
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img12" name="imgselect" type="checkbox" value="12">
+                                    <span>
+                                            12
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img13" name="imgselect" type="checkbox" value="13">
+                                    <span>
+                                            13
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img14" name="imgselect" type="checkbox" value="14">
+                                    <span>
+                                            14
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img15" name="imgselect" type="checkbox" value="15">
+                                    <span>
+                                            15
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img16" name="imgselect" type="checkbox" value="16">
+                                    <span>
+                                            16
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img17" name="imgselect" type="checkbox" value="17">
+                                    <span>
+                                            17
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img18" name="imgselect" type="checkbox" value="18">
+                                    <span>
+                                            18
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img19" name="imgselect" type="checkbox" value="19">
+                                    <span>
+                                            19
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img20" name="imgselect" type="checkbox" value="20">
+                                    <span>
+                                            20
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img21" name="imgselect" type="checkbox" value="21">
+                                    <span>
+                                            21
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img22" name="imgselect" type="checkbox" value="22">
+                                    <span>
+                                            22
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img23" name="imgselect" type="checkbox" value="23">
+                                    <span>
+                                            23
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img24" name="imgselect" type="checkbox" value="24">
+                                    <span>
+                                            24
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img25" name="imgselect" type="checkbox" value="25">
+                                    <span>
+                                            25
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img26" name="imgselect" type="checkbox" value="26">
+                                    <span>
+                                            26
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img27" name="imgselect" type="checkbox" value="27">
+                                    <span>
+                                            27
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img28" name="imgselect" type="checkbox" value="28">
+                                    <span>
+                                            28
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img29" name="imgselect" type="checkbox" value="29">
+                                    <span>
+                                            29
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img30" name="imgselect" type="checkbox" value="30">
+                                    <span>
+                                            30
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img31" name="imgselect" type="checkbox" value="31">
+                                    <span>
+                                            31
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img32" name="imgselect" type="checkbox" value="32">
+                                    <span>
+                                            32
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img33" name="imgselect" type="checkbox" value="33">
+                                    <span>
+                                            33
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img34" name="imgselect" type="checkbox" value="34">
+                                    <span>
+                                            34
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img35" name="imgselect" type="checkbox" value="35">
+                                    <span>
+                                            35
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img36" name="imgselect" type="checkbox" value="36">
+                                    <span>
+                                            36
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img37" name="imgselect" type="checkbox" value="37">
+                                    <span>
+                                            37
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img38" name="imgselect" type="checkbox" value="38">
+                                    <span>
+                                            38
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img39" name="imgselect" type="checkbox" value="39">
+                                    <span>
+                                            39
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img40" name="imgselect" type="checkbox" value="40">
+                                    <span>
+                                            40
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img41" name="imgselect" type="checkbox" value="41">
+                                    <span>
+                                            41
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img42" name="imgselect" type="checkbox" value="42">
+                                    <span>
+                                            42
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img43" name="imgselect" type="checkbox" value="43">
+                                    <span>
+                                            43
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img44" name="imgselect" type="checkbox" value="44">
+                                    <span>
+                                            44
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img45" name="imgselect" type="checkbox" value="45">
+                                    <span>
+                                            45
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img46" name="imgselect" type="checkbox" value="46">
+                                    <span>
+                                            46
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img47" name="imgselect" type="checkbox" value="47">
+                                    <span>
+                                            47
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img48" name="imgselect" type="checkbox" value="48">
+                                    <span>
+                                            48
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img49" name="imgselect" type="checkbox" value="49">
+                                    <span>
+                                            49
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img50" name="imgselect" type="checkbox" value="50">
+                                    <span>
+                                            50
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img51" name="imgselect" type="checkbox" value="51">
+                                    <span>
+                                            51
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img52" name="imgselect" type="checkbox" value="52">
+                                    <span>
+                                            52
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img53" name="imgselect" type="checkbox" value="53">
+                                    <span>
+                                            53
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img54" name="imgselect" type="checkbox" value="54">
+                                    <span>
+                                            54
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img55" name="imgselect" type="checkbox" value="55">
+                                    <span>
+                                            55
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img56" name="imgselect" type="checkbox" value="56">
+                                    <span>
+                                            56
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img57" name="imgselect" type="checkbox" value="57">
+                                    <span>
+                                            57
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img58" name="imgselect" type="checkbox" value="58">
+                                    <span>
+                                            58
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img59" name="imgselect" type="checkbox" value="59">
+                                    <span>
+                                            59
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img60" name="imgselect" type="checkbox" value="60">
+                                    <span>
+                                            60
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img61" name="imgselect" type="checkbox" value="61">
+                                    <span>
+                                            61
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img62" name="imgselect" type="checkbox" value="62">
+                                    <span>
+                                            62
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img63" name="imgselect" type="checkbox" value="63">
+                                    <span>
+                                            63
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img64" name="imgselect" type="checkbox" value="64">
+                                    <span>
+                                            64
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img65" name="imgselect" type="checkbox" value="65">
+                                    <span>
+                                            65
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img66" name="imgselect" type="checkbox" value="66">
+                                    <span>
+                                            66
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img67" name="imgselect" type="checkbox" value="67">
+                                    <span>
+                                            67
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img68" name="imgselect" type="checkbox" value="68">
+                                    <span>
+                                            68
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img69" name="imgselect" type="checkbox" value="69">
+                                    <span>
+                                            69
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img70" name="imgselect" type="checkbox" value="70">
+                                    <span>
+                                            70
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img71" name="imgselect" type="checkbox" value="71">
+                                    <span>
+                                            71
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img72" name="imgselect" type="checkbox" value="72">
+                                    <span>
+                                            72
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img73" name="imgselect" type="checkbox" value="73">
+                                    <span>
+                                            73
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img74" name="imgselect" type="checkbox" value="74">
+                                    <span>
+                                            74
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img75" name="imgselect" type="checkbox" value="75">
+                                    <span>
+                                            75
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img76" name="imgselect" type="checkbox" value="76">
+                                    <span>
+                                            76
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img77" name="imgselect" type="checkbox" value="77">
+                                    <span>
+                                            77
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img78" name="imgselect" type="checkbox" value="78">
+                                    <span>
+                                            78
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img79" name="imgselect" type="checkbox" value="79">
+                                    <span>
+                                            79
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img80" name="imgselect" type="checkbox" value="80">
+                                    <span>
+                                            80
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img81" name="imgselect" type="checkbox" value="81">
+                                    <span>
+                                            81
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img82" name="imgselect" type="checkbox" value="82">
+                                    <span>
+                                            82
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img83" name="imgselect" type="checkbox" value="83">
+                                    <span>
+                                            83
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img84" name="imgselect" type="checkbox" value="84">
+                                    <span>
+                                            84
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img85" name="imgselect" type="checkbox" value="85">
+                                    <span>
+                                            85
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img86" name="imgselect" type="checkbox" value="86">
+                                    <span>
+                                            86
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img87" name="imgselect" type="checkbox" value="87">
+                                    <span>
+                                            87
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img88" name="imgselect" type="checkbox" value="88">
+                                    <span>
+                                            88
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img89" name="imgselect" type="checkbox" value="89">
+                                    <span>
+                                            89
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img90" name="imgselect" type="checkbox" value="90">
+                                    <span>
+                                            90
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img91" name="imgselect" type="checkbox" value="91">
+                                    <span>
+                                            91
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img92" name="imgselect" type="checkbox" value="92">
+                                    <span>
+                                            92
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img93" name="imgselect" type="checkbox" value="93">
+                                    <span>
+                                            93
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img94" name="imgselect" type="checkbox" value="94">
+                                    <span>
+                                            94
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img95" name="imgselect" type="checkbox" value="95">
+                                    <span>
+                                            95
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img96" name="imgselect" type="checkbox" value="96">
+                                    <span>
+                                            96
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img97" name="imgselect" type="checkbox" value="97">
+                                    <span>
+                                            97
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img98" name="imgselect" type="checkbox" value="98">
+                                    <span>
+                                            98
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img99" name="imgselect" type="checkbox" value="99">
+                                    <span>
+                                            99
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img100" name="imgselect" type="checkbox" value="100">
+                                    <span>
+                                            100
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img101" name="imgselect" type="checkbox" value="101">
+                                    <span>
+                                            101
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img102" name="imgselect" type="checkbox" value="102">
+                                    <span>
+                                            102
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img103" name="imgselect" type="checkbox" value="103">
+                                    <span>
+                                            103
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img104" name="imgselect" type="checkbox" value="104">
+                                    <span>
+                                            104
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img105" name="imgselect" type="checkbox" value="105">
+                                    <span>
+                                            105
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img106" name="imgselect" type="checkbox" value="106">
+                                    <span>
+                                            106
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img107" name="imgselect" type="checkbox" value="107">
+                                    <span>
+                                            107
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img108" name="imgselect" type="checkbox" value="108">
+                                    <span>
+                                            108
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img109" name="imgselect" type="checkbox" value="109">
+                                    <span>
+                                            109
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img110" name="imgselect" type="checkbox" value="110">
+                                    <span>
+                                            110
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img111" name="imgselect" type="checkbox" value="111">
+                                    <span>
+                                            111
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img112" name="imgselect" type="checkbox" value="112">
+                                    <span>
+                                            112
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img113" name="imgselect" type="checkbox" value="113">
+                                    <span>
+                                            113
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img114" name="imgselect" type="checkbox" value="114">
+                                    <span>
+                                            114
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img115" name="imgselect" type="checkbox" value="115">
+                                    <span>
+                                            115
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img116" name="imgselect" type="checkbox" value="116">
+                                    <span>
+                                            116
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img117" name="imgselect" type="checkbox" value="117">
+                                    <span>
+                                            117
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img118" name="imgselect" type="checkbox" value="118">
+                                    <span>
+                                            118
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img119" name="imgselect" type="checkbox" value="119">
+                                    <span>
+                                            119
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img120" name="imgselect" type="checkbox" value="120">
+                                    <span>
+                                            120
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img121" name="imgselect" type="checkbox" value="121">
+                                    <span>
+                                            121
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img122" name="imgselect" type="checkbox" value="122">
+                                    <span>
+                                            122
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img123" name="imgselect" type="checkbox" value="123">
+                                    <span>
+                                            123
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img124" name="imgselect" type="checkbox" value="124">
+                                    <span>
+                                            124
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img125" name="imgselect" type="checkbox" value="125">
+                                    <span>
+                                            125
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img126" name="imgselect" type="checkbox" value="126">
+                                    <span>
+                                            126
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img127" name="imgselect" type="checkbox" value="127">
+                                    <span>
+                                            127
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img128" name="imgselect" type="checkbox" value="128">
+                                    <span>
+                                            128
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img129" name="imgselect" type="checkbox" value="129">
+                                    <span>
+                                            129
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                            <div class="ck-button">
+                                <label>
+                                    <input id="img130" name="imgselect" type="checkbox" value="130">
+                                    <span>
+                                            130
+                                        </span>
+                                    </input>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step" id="alacarte">
+                        <div class="steptitle">
+                            <h3>
+                                Step 3 - A La Carte Selections
+                            </h3>
+                        </div>
+                        <div class="instructions">
+                            <p>
+                                Indicate your a la carte selections. Image numbers can be found below each image on your proof sheet. Image numbers should be listed as the last 3 digits of the proof reference #
+                            </p>
+                            <p>
+                                <em>
+                                    EXAMPLE:
+                                </em> Image # 001_yourname_105 can be listed as simply "105."
+                            </p>
+                        </div>
+                        <div id="alacarteform">
+                            <table>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="step">
+                    </div>
+                    <div class="step">
+                    </div>
+                </form>
+            </div>
+            <div id="ordertotalwrapper">
+                <h3 id="ordertotaltitle">Your Order</h3>
+                <div id="ordertotalmain">
+                    <div id="ordertotal">
+                        <div id="ordertotalinner">
+                            <span id="totalleft">Order Total</span>
+                            <span id="totalright">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
