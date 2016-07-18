@@ -241,24 +241,53 @@ th,td {
 }
 
 #ordertotal {
-    height: 50px;
-    line-height: 50px;
     border-top: 1px solid rgba(0,0,0,.1);
+}
+
+#ordertotal{
+    line-height: 50px;
     padding: 0 20px;
 }
 
-#ordertotalinner {
+#ordertotalinner,
+#tax{
     width: 50%;
     margin: auto;
 }
 
-#totalright {
+#tax {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+#totalright,
+#taxright {
     float: right;
 }
 
 .total {
     width: 50%;
     margin: 10px auto;
+}
+
+.totalitem {
+    width: 50%;
+    margin: auto;
+    height: 30px;
+    line-height: 30px;
+}
+
+#alcmore {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.removealcblank {
+    opacity: 0;
+}
+
+.removealc {
+    border: none !important;
 }
 
 /**

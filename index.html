@@ -5,10 +5,17 @@
     <title>
         Order Form
     </title>
+    
+    <!-- Import required scripts -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
     </script>
     <script src="order.js">
     </script>
+    
+    <!-- Import stylesheets -->
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"></link>
     <link href="style.css" rel="stylesheet" type="text/css">
     </link>
 </head>
@@ -17,8 +24,8 @@
     <header>
         <div id="header-branding">
             <p>
-                Walter & Walters
-            </p>
+                Walters & Walters
+            </p>    
         </div>
     </header>
     <main>
@@ -28,7 +35,7 @@
                     <div class="step" id="collection">
                         <div class="steptitle">
                             <h3>
-                                Step 1 - Choose your Collection
+                                Choose your Collection
                             </h3>
                         </div>
                         <div class="instructions">
@@ -42,7 +49,7 @@
                             </p>
                         </div>
                         <div id="collections">
-                            <div class="collection active" id="heirloom">
+                            <div class="collection" id="heirloom">
                                 <h5 class="collectiontitle">
                                     Heirloom Collection (50pg)
                                 </h5>
@@ -165,10 +172,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step" id="selection">
+                    <div class="step" id="selection" style="display: none;">
                         <div class="steptitle">
                             <h3>
-                                Step 2 - Select the Images for Your Album
+                                Select the Images for Your Album
                             </h3>
                         </div>
                         <div class="instructions">
@@ -177,7 +184,7 @@
                             </p>
                             <p>
                                 <em>
-                                    *Albums are available in listed page counts only.
+                                    *Albums are available in listed page counts only. You can select up to <span class="selectmax">0</span> images.
                                 </em>
                             </p>
                         </div>
@@ -1353,11 +1360,12 @@
                                 </label>
                             </div>
                         </div>
+                        <div id="imgselectmax" style="text-align: center; color: red"><span id="selected">0</span>/<span class="selectmax">0</span></div>
                     </div>
-                    <div class="step" id="alacarte">
+                    <div class="step" id="alacarte" style="display: none;">
                         <div class="steptitle">
                             <h3>
-                                Step 3 - A La Carte Selections
+                                A La Carte Selections
                             </h3>
                         </div>
                         <div class="instructions">
@@ -1380,11 +1388,34 @@
                                     <th>Total</th>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <input class="alcimg" type="text">
+                                    </td>
+                                    <td>
+                                        <select class="alcsize">
+                                            <option selected disabled>Select a Size</option>
+                                            <option disabled>---</option>
+                                            <option value="4x6 Print">4x6 Print</option>
+                                            <option value="5x7 Print">5x7 Print</option>
+                                            <option value="8x10 Print">8x10 Print</option>
+                                            <option value="8x12 Panoramic">8x12 Panoramic</option>
+                                            <option value="Single Digital Image File">Single Digital Image File</option>
+                                            <option value="Set of 3 Digital Image Files">Set of 3 Digital Image Files</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input class="alcqty" type="number">
+                                    </td>
+                                    <td>
+                                        <span class="alcprice"></span>
+                                    </td>
+                                    <td>
+                                        <span class="alctotal"></span>
+                                    </td>
+                                    <td class="removealcblank"><i class="fa fa-minus-circle" style="color: red"></i></td>
+                                </tr>
+                                <tr id="alcmore">
+                                    <td id="alcmoreinner" colspan="5"><i class="fa fa-plus-circle" style="margin-right: 5px;"></i>Add A La Carte Item</td>
                                 </tr>
                             </table>
                         </div>
@@ -1399,6 +1430,10 @@
                 <h3 id="ordertotaltitle">Your Order</h3>
                 <div id="ordertotalmain">
                     <div id="ordertotal">
+                        <div id="tax">
+                            <span id="taxleft">Tax</span>
+                            <span id="taxright">$0.00</span>
+                        </div>
                         <div id="ordertotalinner">
                             <span id="totalleft">Order Total</span>
                             <span id="totalright">$0.00</span>
