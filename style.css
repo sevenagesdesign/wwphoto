@@ -36,6 +36,10 @@ main {
 	margin: 0 auto;
 }
 
+.step {
+    margin-bottom: 50px;
+}
+
 #orderform {
     width: 100%;
 }
@@ -45,7 +49,12 @@ main {
 }
 
 #collections {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
 
@@ -54,6 +63,7 @@ main {
     margin: calc(2% - 1px);
     border: 1px solid rgba(0,0,0,.2);
     opacity: .5;
+    -webkit-transition: opacity .25s ease;
     transition: opacity .25s ease;
     position: relative;
     bottom: 0;
@@ -62,6 +72,7 @@ main {
 .collection:hover,
 .collection.active {
     opacity: 1;
+    -webkit-transition: opacity .25s ease;
     transition: opacity .25s ease;
 }
 
@@ -148,6 +159,9 @@ main {
 .discounttext {
     font-size: 12px;
     position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -197,6 +211,11 @@ th,td {
     height: 20px;
     font-size: 16px;
 }
+
+#alacarteform table {
+    width: 100%;
+}
+
 #alacarteform th {
     border: 1px solid rgba(0,0,0,.1)
 }
