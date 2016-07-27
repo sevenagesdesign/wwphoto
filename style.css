@@ -276,6 +276,10 @@ th,td {
     line-height: 30px;
 }
 
+.totalitem span.right {
+    float: right;
+}
+
 #alcmore {
     height: 30px;
     line-height: 30px;
@@ -314,4 +318,45 @@ th,td {
         width: 290px;
         margin: 10px auto;
     }
+}
+
+
+/**
+ * ALC Order Toggle
+ */
+
+#openalc.ck-button label input {
+   margin-right:100px;
+}
+
+#openalc.ck-button {
+    margin: 4px;
+    background-color: #EFEFEF;
+    border-radius: 0px;
+    overflow: auto;
+    display: block;
+    width: 185px;
+    margin: 20px auto;
+}
+
+#openalc.ck-button:hover {
+}
+
+#openalc.ck-button label {
+    float:left;
+    width: 185px
+}
+
+#openalc.ck-button label span {
+    text-align:center;
+    padding: 10px;
+    display:block;
+}
+
+#openalc.ck-button label input {
+    display: none;
+}
+
+#openalc.ck-button input:checked + span {
+    background-color: #25ED33;
 }
