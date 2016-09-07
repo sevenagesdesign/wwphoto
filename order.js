@@ -1,39 +1,34 @@
 $(function () {
     "use strict";
-    /**
-     * Toggles active class on packages
-     */
     
-	$('.collection').click(function () {
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active');
+    var imgSelector = [];
+    $('input[name="imgselect"]').click(function () {
+        imgSelector.push($(this).attr('value'));
+    });
+    
+     // Toggles active class on packages
+    
+	$('.collection input[type="checkbox"]').click(function () {
+        if ($(this).parents('.collection').hasClass('active')) {
+            $(this).parents('.collection').removeClass('active');
+            $('.step#selection').slideUp();
+            $('.step#alacarte').slideDown();
         } else {
-            $(this).addClass('active');
-            $(this).siblings('.collection').removeClass('active');
+            $(this).parents('.collection').addClass('active');
+            $(this).parents('.collection').siblings('.collection').removeClass('active');
+            $(this).parents('.collection').siblings('.collection').find('.collectionselector').prop('checked', false);
+            $('#openalc').show();
+            $('.step#selection').slideDown();
+            $('.step#alacarte').slideUp();
+            imgSelector = [];
         }
     });
     
-    $('.collection:not(#no-album)').click(function () {
-        if ($(this).hasClass('active')) {
-            $('.step#selection').slideDown('slow');
-            $('.step#alacarte').slideUp('slow');
-        } else {
-            $('.step#selection').slideUp('slow');
-        }
+    $('#openalc').click(function () {
+        $('.step#alacarte').slideDown();
+        $(this).hide();
     });
     
-    $('.collection#no-album').click(function () {
-        if ($(this).hasClass('active')) {
-            $('.step#selection').slideUp('slow');
-            $('.step#alacarte').slideDown('slow');
-        } else {
-            $('.step#alacarte').slideUp('slow');
-        }
-    });
-    
-    $('#openalc').click(function(){
-        $('.step#alacarte').slideToggle(); 
-    });
     /**
      * Set maximum number of images/package
      */
@@ -69,6 +64,8 @@ $(function () {
         return select_max;
     }
     
+    // Get images from selector
+    
     $('.collection').click(function () {
         $('input[name="imgselect"]:checked').prop('checked', false);
     });
@@ -90,7 +87,7 @@ $(function () {
      */
     
     $('#alcmore').click(function () {
-        $(this).before("<tr><td><input class='alcimg' type='text'></td><td><select class='alcsize'><option selected disabled>Select a Size</option><option disabled>---</option><option value='4x6 Print'>4x6 Print</option><option value='5x7 Print'>5x7 Print</option><option value='8x10 Print'>8x10 Print</option><option value='8x12 Panoramic'>8x12 Panoramic</option><option value='Single Digital Image File'>Single Digital Image File</option><option value='Set of 3 Digital Image Files'>Set of 3 Digital Image Files</option></select></td><td><input class='alcqty'></td><td><span class='alcprice'></span></td><td><span class='alctotal'></span></td><td class='removealc'><i class='fa fa-minus-circle' style='color: red'></i></td></tr>");
+        $(this).before("<tr class='alcselection'><td><input class='alcimg' type='text'></td><td><select class='alcsize'><option selected disabled>Select a Size</option><option disabled>---</option><option value='4x6 Print'>4x6 Print</option><option value='5x7 Print'>5x7 Print</option><option value='8x10 Print'>8x10 Print</option><option value='8x12 Panoramic'>8x12 Panoramic</option><option value='Single Digital Image File'>Single Digital Image File</option><option value='Set of 3 Digital Image Files'>Set of 3 Digital Image Files</option></select></td><td><input class='alcqty'></td><td><span class='alcprice'></span></td><td><span class='alctotal'></span></td><td class='removealc'><i class='fa fa-minus-circle' style='color: red'></i></td></tr>");
     });
     
     /**
@@ -100,6 +97,8 @@ $(function () {
     $('table').on('click', '.removealc', function (events) {
         $(this).parents('tr').remove();
     });
+    
+    // Add A La Carte totals / row
     
     /**
      * Get totals from sections
@@ -128,11 +127,20 @@ $(function () {
     
     function order_list() {
         if ($('.collection#heirloom').hasClass('active')) {
-            $('.totalitem.package').html('Heirloom Collection<span class="right">$1245.00</span>');
+            $('.totalitem.package').html(
+                '<p class="left">Heirloom Collection</span><span class="right">$1245.00</p>' +
+                    '<p style="display: none;">Images Selected: ' + imgSelector.sort(function (a, b) {return a - b; }).toString() + '</p>'
+            );
         } else if ($('.collection#signature').hasClass('active')) {
-            $('.totalitem.package').html('Signature Collection<span class="right">$955.00</span>');
+            $('.totalitem.package').html(
+                'Signature Collection<span class="right">$955.00</span>' +
+                    '<p style="display: none;">Images Selected: ' + imgSelector.sort(function (a, b) {return a - b; }).toString() + '</p>'
+            );
         } else if ($('.collection#keepsake').hasClass('active')) {
-            $('.totalitem.package').html('Keepsake Collection<span class="right">$695.00</span>');
+            $('.totalitem.package').html(
+                'Keepsake Collection<span class="right">$695.00</span>' +
+                    '<p style="display: none;">Images Selected: ' + imgSelector.sort(function (a, b) {return a - b; }).toString() + '</p>'
+            );
         } else {
             $('.totalitem.package').html('');
         }
@@ -150,5 +158,15 @@ $(function () {
         set_max();
         order_list();
         get_totals();
+    });
+    
+    var orderForm = $('#ordertotalmain');
+    
+    $('#orderSubmit').click(function () {
+        $.ajax({
+            type: 'POST',
+            url: 'sendmail.php',
+            data: { content: orderForm.html() }
+        });
     });
 });

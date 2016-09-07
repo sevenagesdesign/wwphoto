@@ -31,7 +31,6 @@
     <main>
         <div class="content">
             <div id="orderform">
-                <form>
                     <div class="step" id="collection">
                         <div class="steptitle">
                             <h3>
@@ -51,7 +50,7 @@
                         <div id="collections">
                             <div class="collection" id="heirloom">
                                 <h5 class="collectiontitle">
-                                    Heirloom Collection (50pg)
+                                    Heirloom Collection (50pg) <input class="collectionselector" type="checkbox" />
                                 </h5>
                                 <div class="packagemain">
                                     <div class="packageinfo">
@@ -90,7 +89,7 @@
                             </div>
                             <div class="collection" id="signature">
                                 <h5 class="collectiontitle">
-                                    Signature Collection (36pg)
+                                    Signature Collection (36pg) <input class="collectionselector" type="checkbox" />
                                 </h5>
                                 <div class="packagemain">
                                     <div class="packageinfo">
@@ -130,7 +129,7 @@
                             </div>
                             <div class="collection" id="keepsake">
                                 <h5 class="collectiontitle">
-                                    Keepsake Collection (24pg)
+                                    Keepsake Collection (24pg) <input class="collectionselector" type="checkbox" />
                                 </h5>
                                 <div class="packagemain">
                                     <div class="packageinfo">
@@ -165,7 +164,7 @@
                             </div>
                             <div class="collection" id="no-album">
                                 <h5 class="collectiontitle">
-                                    No Album
+                                    No Album <input class="collectionselector" type="checkbox" />
                                 </h5>
                                 <div class="packagemain">
                                 </div>
@@ -1368,7 +1367,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="step" id="alacarte" style="display: none;">
+                    <div class="step" id="alacarte">
                         <div class="steptitle">
                             <h3>
                                 A La Carte Selections
@@ -1393,7 +1392,7 @@
                                     <th>Unit Price</th>
                                     <th>Total</th>
                                 </tr>
-                                <tr>
+                                <tr class="alcselection">
                                     <td>
                                         <input class="alcimg" type="text">
                                     </td>
@@ -1430,25 +1429,27 @@
                     </div>
                     <div class="step">
                     </div>
-                </form>
             </div>
             <div id="ordertotalwrapper">
                 <h3 id="ordertotaltitle">Your Order</h3>
-                <div id="ordertotalmain">
-                    <div class="totalitem package">
+                <form>
+                    <div id="ordertotalmain">
+                        <div class="totalitem package">
                     
-                    </div>
-                    <div id="ordertotal">
-                        <div id="tax">
-                            <span id="taxleft">Tax</span>
-                            <span id="taxright">$0.00</span>
                         </div>
-                        <div id="ordertotalinner">
-                            <span id="totalleft">Order Total</span>
-                            <span id="totalright">$0.00</span>
+                        <div id="ordertotal">
+                            <div id="tax">
+                                <span id="taxleft">Tax</span>
+                                <span id="taxright">$0.00</span>
+                            </div>
+                            <div id="ordertotalinner">
+                                <span id="totalleft">Order Total</span>
+                                <span id="totalright">$0.00</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <p id="orderSubmit">Submit Order</p>
+                </form>
             </div>
         </div>
     </main>
