@@ -1,7 +1,6 @@
-/**
+/*
  * Import Google Fonts
  */
-
 @import 'https://fonts.googleapis.com/css?family=Old+Standard+TT';
 
 /**
@@ -179,7 +178,7 @@ main {
 #photoselect .ck-button {
     margin: 4px;
     background-color: #EFEFEF;
-    border-radius: 0px;
+    border-radius: 5px;
     overflow: auto;
     display: inline-block;
 }
@@ -203,12 +202,12 @@ main {
 }
 
 #photoselect .ck-button input:checked + span {
-    background-color:#911;
+    background-color:#25ED33;
     color:#fff;
 }
 th,td {
     border-collapse: collapse;
-    height: 20px;
+    min-height: 20px;
     font-size: 16px;
 }
 
@@ -247,6 +246,8 @@ th,td {
 #ordertotal{
     line-height: 50px;
     padding: 0 20px;
+    width: 50%;
+    margin: auto;
 }
 
 #ordertotalinner,
@@ -332,7 +333,7 @@ th,td {
 #openalc.ck-button {
     margin: 4px;
     background-color: #EFEFEF;
-    border-radius: 0px;
+    border-radius: 5px;
     overflow: auto;
     display: block;
     width: 185px;
@@ -357,7 +358,7 @@ th,td {
     display: none;
 }
 
-#openalc.ck-button input:checked + span {
+#openalc.ck-button:hover input + span {
     background-color: #25ED33;
 }
 
