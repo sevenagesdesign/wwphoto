@@ -3,7 +3,12 @@ $(function () {
 	
 	var imgSelector = [];
 	$('input[name="imgselect"]').click(function () {
-		imgSelector.push($(this).val());
+        if($(this).prop('checked')){
+		  imgSelector.push($(this).val());
+        }else{
+            var index = imgSelector.indexOf($(this).val());
+          imgSelector.splice(index, 1);  
+        }
 	});
 	
 	// Toggles active class on packages
@@ -78,7 +83,25 @@ $(function () {
 	// Add rows to A La Carte selection
 	
 	$('#alcmore').click(function () {
-		$(this).before("<tr class='alcselection'><td><input class='alcimg' type='text'></td><td><select class='alcsize'><option selected disabled>Select a Size</option><option disabled>---</option><option value='4x6 Print'>4x6 Print</option><option value='5x7 Print'>5x7 Print</option><option value='8x10 Print'>8x10 Print</option><option value='8x12 Panoramic'>8x12 Panoramic</option><option value='Single Digital Image File'>Single Digital Image File</option><option value='Set of 3 Digital Image Files'>Set of 3 Digital Image Files</option></select></td><td><input class='alcqty'></td><td><span class='alcprice'></span></td><td><span class='alctotal'></span></td><td class='removealc'><i class='fa fa-minus-circle' style='color: red'></i></td></tr>");
+		$(this).before(
+			"<tr class='alcselection'>" +
+			"<td><input class='alcimg' type='text'></td>" +
+			"<td><select class='alcsize'>" +
+			"<option selected disabled>Select a Size</option>" +
+			"<option disabled>---</option>" +
+			"<option value='4x6 Print'>4x6 Print</option>" +
+			"<option value='5x7 Print'>5x7 Print</option>" +
+			"<option value='8x10 Print'>8x10 Print</option>" +
+			"<option value='8x12 Panoramic'>8x12 Panoramic</option>" +
+			"<option value='Single Digital Image File'>Single Digital Image File</option>" +
+			"<option value='Set of 3 Digital Image Files'>Set of 3 Digital Image Files</option>" +
+			"</select></td>" +
+			"<td><input class='alcqty'></td>" +
+			"<td><span class='alcprice'></span></td>" +
+			"<td><span class='alctotal'></span></td>" +
+			"<td class='removealc'><i class='fa fa-minus-circle' style='color: red'></i></td>" +
+			"</tr>"
+		);
 	});
 	
 	// Remove rows from A La Carte selection
@@ -86,6 +109,7 @@ $(function () {
 	$('table').on('click', '.removealc', function (events) {
 		$(this).parents('tr').remove();
 	});
+
 	/*
 	 * Add A La Carte totals / row
 	 */
@@ -118,9 +142,7 @@ $(function () {
 		$(this).parents('td').siblings().find('.alctotal').html('<span>$' + $(this).val() * $(this).parents('td').siblings().find('.alcprice > span').attr('value') + '</span>' );
 	});
 
-	/**
-	 * Get totals from sections
-	 */
+	// Get totals from sections
 	
 	function package_totals() {
 		
@@ -138,15 +160,17 @@ $(function () {
 	}
 	
 	function alacarte_totals() {
-		return 0;
-		
+		return false;
 		//return alacartetotal
 	}
 
 	function folioItems() {
-		$('.collection.active input[type="text"').each(function(){
-			return $(this).val();
+        var items = [];
+		$('.collection.active input[type="text"]').each(function(){
+			items.push($(this).val().toString());
 		});
+        return items.join(', ');
+    
 	}
 	
 	function order_list() {
@@ -160,7 +184,7 @@ $(function () {
 				'<td colspan="2">Folio Images Selected</td>\n' +
 				'</tr>\n' +
 				'<tr class="form-hidden">\n' +
-				'<td colspan="2">' + $('.collection.active input[type="text"]').val() + '</td>\n' +
+				'<td colspan="2">' + folioItems() + '</td>\n' +
 				'</tr>\n' +
 				'<tr class="form-hidden">\n' +
 				'<td colspan="2">Album Images Selected:</td>\n' +
@@ -213,12 +237,11 @@ $(function () {
 		set_max();
 		order_list();
 		get_totals();
-		folioItems();
 	});
 	
 	var orderForm = $('#ordertotalmain');
 	
-	$('#orderSubmit').click(function () {
+	$('#orderSubmit > button').click(function () {
 		$.ajax({
 			type: 'POST',
 			url: 'sendmail.php',
