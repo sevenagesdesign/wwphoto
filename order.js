@@ -96,7 +96,7 @@ $(function () {
 			"<option value='Single Digital Image File'>Single Digital Image File</option>" +
 			"<option value='Set of 3 Digital Image Files'>Set of 3 Digital Image Files</option>" +
 			"</select></td>" +
-			"<td><input class='alcqty'></td>" +
+			"<td><input class='alcqty' type='number'></td>" +
 			"<td><span class='alcprice'></span></td>" +
 			"<td><span class='alctotal'></span></td>" +
 			"<td class='removealc'><i class='fa fa-minus-circle' style='color: red'></i></td>" +
@@ -116,7 +116,7 @@ $(function () {
 
 	// Update on size change
 
-	$('.alcsize').on('change', function(){
+	$('table').on('change', '.alcsize', function(events){
 		if($(this).val() === '4x6 Print') {
 			$(this).parents('td').siblings().find('.alcprice').html('<span value="35">$35</span>');
 		} else if($(this).val() === '5x7 Print') {
@@ -138,7 +138,7 @@ $(function () {
 
 	// Update on quantity change
 
-	$('.alcqty').on('change', function() {
+	$('table').on('change', '.alcqty', function(events) {
 		$(this).parents('td').siblings().find('.alctotal').html('<span>$' + $(this).val() * $(this).parents('td').siblings().find('.alcprice > span').attr('value') + '</span>' );
 	});
 
