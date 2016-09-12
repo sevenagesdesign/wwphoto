@@ -3,11 +3,17 @@ $(function () {
 	
 	var imgSelector = [];
 	$('input[name="imgselect"]').click(function () {
+		set_max(select_max);
+		var maximum = select_max;
         if($(this).prop('checked')){
-		  imgSelector.push($(this).val());
-        }else{
-            var index = imgSelector.indexOf($(this).val());
-          imgSelector.splice(index, 1);  
+        	if(imgSelector.length < maximum) {
+				imgSelector.push($(this).val());
+			} else {
+				return false;
+			}
+        } else {
+        	var index = imgSelector.indexOf($(this).val());
+        	imgSelector.splice(index, 1);  
         }
 	});
 	
@@ -82,8 +88,8 @@ $(function () {
 	
 	// Add rows to A La Carte selection
 	
-	$('#alcmore').click(function () {
-		$(this).before(
+	$('#alcmore button').click(function () {
+		$(this).parents('#alcmore').before(
 			"<tr class='alcselection'>" +
 			"<td><input class='alcimg' type='text'></td>" +
 			"<td><select class='alcsize'>" +
@@ -96,7 +102,7 @@ $(function () {
 			"<option value='Single Digital Image File'>Single Digital Image File</option>" +
 			"<option value='Set of 3 Digital Image Files'>Set of 3 Digital Image Files</option>" +
 			"</select></td>" +
-			"<td><input class='alcqty' type='number'></td>" +
+			"<td><input class='alcqty' type='number' min='0'></td>" +
 			"<td><span class='alcprice'></span></td>" +
 			"<td><span class='alctotal'></span></td>" +
 			"<td class='removealc'><i class='fa fa-minus-circle' style='color: red'></i></td>" +
@@ -134,12 +140,14 @@ $(function () {
 		}
 
 		$(this).parents('td').siblings().find('.alctotal').html('<span>$' + $(this).parents('td').siblings().find('.alcqty').val() * $(this).parents('td').siblings().find('.alcprice > span').attr('value') + '</span>' );
+		$(this).parents('td').siblings().find('.alctotal span').val($(this).parents('td').siblings().find('.alcqty').val() * $(this).parents('td').siblings().find('.alcprice > span').attr('value'));
 	});
 
 	// Update on quantity change
 
 	$('table').on('change', '.alcqty', function(events) {
 		$(this).parents('td').siblings().find('.alctotal').html('<span>$' + $(this).val() * $(this).parents('td').siblings().find('.alcprice > span').attr('value') + '</span>' );
+		$(this).parents('td').siblings().find('.alctotal span').val($(this).val() * $(this).parents('td').siblings().find('.alcprice > span').attr('value'));
 	});
 
 	// Get totals from sections
@@ -158,9 +166,31 @@ $(function () {
 			return 0;
 		}
 	}
+
 	
 	function alacarte_totals() {
-		return false;
+		var alctotalsfinal = 0;
+		$('.alctotal span').each(function(){
+			alctotalsfinal += parseInt($(this).val());
+			return alctotalsfinal;
+		});
+		if (alctotalsfinal > 0) {
+			$('.totalitem.alctotals').html(
+				'<tr>\n' +
+				'<td class="left">A La Carte Items</td>\n' +
+				'<td class="right">$' + alctotalsfinal + '</td>\n' +
+				'</tr>\n' +
+				'<tr>\n' +
+				'<td colspan="2">A La Carte Selections:</td>\n' +
+				'</tr>\n' +
+				'<tr>\n' +
+				'<td>Placeholder Text</td>\n' +
+				'</tr>'
+			);
+		} else {
+			$('.totalitem.alctotals').html('');
+		}
+		return alctotalsfinal;
 		//return alacartetotal
 	}
 
@@ -181,7 +211,7 @@ $(function () {
 				'<td class="right">$1245.00</td>\n' +
 				'</tr>\n' +
 				'<tr class="form-hidden">\n' +
-				'<td colspan="2">Folio Images Selected</td>\n' +
+				'<td colspan="2">8x10 Folio Prints Selected:</td>\n' +
 				'</tr>\n' +
 				'<tr class="form-hidden">\n' +
 				'<td colspan="2">' + folioItems() + '</td>\n' +
@@ -200,6 +230,12 @@ $(function () {
 				'<td class="right">$955.00</td>\n' +
 				'</tr>\n' +
 				'<tr class="form-hidden">\n' +
+				'<td colspan="2">5x7 Folio Prints Selected:</td>\n' +
+				'</tr>\n' +
+				'<tr class="form-hidden">\n' +
+				'<td colspan="2">' + folioItems() + '</td>\n' +
+				'</tr>\n' +
+				'<tr class="form-hidden">\n' +
 				'<td colspan="2">Images Selected:</td>\n' +
 				'</tr>\n' +
 				'<tr class="form-hidden">\n' +
@@ -211,6 +247,12 @@ $(function () {
 				'<tr>\n' +
 				'<td class="left">Keepsake Collection</td>\n' +
 				'<td class="right">$695.00</td>\n' +
+				'</tr>\n' +
+				'<tr class="form-hidden">\n' +
+				'<td colspan="2">5x7 Folio Prints Selected:</td>\n' +
+				'</tr>\n' +
+				'<tr class="form-hidden">\n' +
+				'<td colspan="2">' + folioItems() + '</td>\n' +
 				'</tr>\n' +
 				'<tr>\n' +
 				'<tr class="form-hidden">' +
@@ -233,7 +275,7 @@ $(function () {
 		$('#totalright').text("$" + total.toFixed(2));
 	}
 	
-	$(window).click(function () {
+	$(window).change(function () {
 		set_max();
 		order_list();
 		get_totals();

@@ -1409,7 +1409,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <input class="alcqty" type="number">
+                                        <input class="alcqty" type="number" min="0">
                                     </td>
                                     <td>
                                         <span class="alcprice"></span>
@@ -1420,7 +1420,11 @@
                                     <td class="removealcblank"><i class="fa fa-minus-circle" style="color: red"></i></td>
                                 </tr>
                                 <tr id="alcmore">
-                                    <td id="alcmoreinner" colspan="5"><i class="fa fa-plus-circle" style="margin-right: 5px;"></i>Add A La Carte Item</td>
+                                    <td id="alcmoreinner" colspan="5">
+                                        <button>
+                                            <i class="fa fa-plus-circle" style="margin-right: 5px;"></i>Add A La Carte Item</td>
+                                        </button>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -1435,6 +1439,9 @@
                 <form>
                     <div id="ordertotalmain">
                         <table class="totalitem package">
+                            
+                        </table>
+                        <table class="totalitem alctotals">
                             
                         </table>
                         <table id="ordertotal">

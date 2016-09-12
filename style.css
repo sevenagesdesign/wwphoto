@@ -8,7 +8,7 @@
  */
 
 body {
-	padding: 32px;
+    padding: 32px;
 }
 
 input, textarea {
@@ -26,13 +26,13 @@ header {
     padding: 15px 22px;
 }
 main {
-	padding: 60px 40px;
+    padding: 60px 40px;
 }
 
 .content {
-	width: 1251px;
-	max-width: 100%;
-	margin: 0 auto;
+    width: 1251px;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .step {
@@ -48,17 +48,17 @@ main {
 }
 
 #collections {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .collection {
-	width: 21%;
+    width: 21%;
     margin: calc(2% - 1px);
     border: 1px solid rgba(0,0,0,.2);
     opacity: .5;
@@ -209,18 +209,21 @@ th,td {
     border-collapse: collapse;
     min-height: 20px;
     font-size: 16px;
+    padding: 0 20px;
 }
 
 #alacarteform table {
     width: 100%;
+    text-align: center;
 }
 
 #alacarteform th {
     border: 1px solid rgba(0,0,0,.1)
 }
 
-#alacarteform td {
+#alacarteform td:not(#alcmoreinner) {
     border: 1px solid rgba(0,0,0,.1);
+    padding: 5px;
 }
 
 /**
@@ -279,6 +282,11 @@ th,td {
 
 .right {
     float: right;
+}
+
+.left, .right {
+    padding: initial;
+    font-weight: bold;
 }
 
 #alcmore {
@@ -366,7 +374,7 @@ th,td {
     text-align: center;
 }
 
-#orderSubmit button {
+button {
     cursor: pointer;
     height: 33px;
     font-size: 12px;
@@ -374,4 +382,8 @@ th,td {
     padding: 0 10.5px;
     background: white;
     border: 1px solid #404040;
+}
+
+button:hover {
+    background-color: #25ED33;
 }
