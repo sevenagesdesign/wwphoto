@@ -212,6 +212,10 @@ th,td {
     padding: 0 20px;
 }
 
+#alacarteform {
+    margin-right: -44px;
+}
+
 #alacarteform table {
     width: 100%;
     text-align: center;

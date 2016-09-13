@@ -1,25 +1,49 @@
 $(function () {
 	"use strict";
-	
+
+	var totalAvailable = 130; // Set total number of album images available
+
+
+	// Firefox bug workaround
+
+	$('input[type="checkbox"]').prop('checked', false);
+	$('input').val('');
+	$('input').attr('disabled', false);
+
 	var imgSelector = [];
-	$('input[name="imgselect"]').click(function () {
-		set_max(select_max);
+	$('#photoselect').on('click', 'input[name="imgselect"]', function () {
+		set_max();
 		var maximum = select_max;
-        if($(this).prop('checked')){
-        	if(imgSelector.length < maximum) {
+		if($(this).prop('checked')){
+			if(imgSelector.length < maximum) {
 				imgSelector.push($(this).val());
 			} else {
 				return false;
 			}
-        } else {
-        	var index = imgSelector.indexOf($(this).val());
-        	imgSelector.splice(index, 1);  
-        }
+		} else {
+			var index = imgSelector.indexOf($(this).val());
+			imgSelector.splice(index, 1);  
+		}
 	});
+
+	// Create Photo Select Checkboxes
+
+	$('#photoselect').append(function() {
+		for (var i = 1; i <= totalAvailable; i++) {
+    		$(this).append('<div class="ck-button"><label><input id="img' + i + '" name="imgselect" type="checkbox" value="' + i + '"><span>' + i + '</span></input></label></div>');
+		}
+	});
+
+	// Prepare coupon code
+
+	$('#couponcode').css('width', 'calc(100% - ' + $('#addcoupon').outerWidth() * 1.75 + 'px)');
+
 	
+
+
 	// Toggles active class on packages
 	
-	$('.collection input[type="checkbox"]').click(function () {
+	$('.collection').on('click', 'input[type="checkbox"]', function () {
 		if ($(this).parents('.collection').hasClass('active')) {
 			$(this).parents('.collection').removeClass('active');
 			$('.step#selection').slideUp();
@@ -58,7 +82,7 @@ $(function () {
 			select_max = 0;
 		}
 		
-		$('input[name="imgselect"]').on('change', function (evt) {
+		$('input[name="imgselect"]').on('change', function () {
 			if ($('input[name="imgselect"]:checked').length > select_max) {
 				this.checked = false;
 				$('#selected').text(select_max);
@@ -73,7 +97,7 @@ $(function () {
 	
 	// Get images from selector
 	
-	$('.collection').click(function () {
+	$('.collection').on('click', 'input[type="checkbox"]', function () {
 		$('input[name="imgselect"]:checked').prop('checked', false);
 	});
 	
@@ -123,18 +147,38 @@ $(function () {
 	// Update on size change
 
 	$('table').on('change', '.alcsize', function(events){
+		if ($('.collection').hasClass('active')) {
+		// Set prices for A La Carte if Collection is selected
+
+		var price_4x6 =		20,	// Price for 4x6 Print
+			price_5x7 =		20, // Price for 5x7 Print
+			price_8x10 =	30, // Price for 8x10 Print
+			price_8x12 = 	35, // Price for 8x12 Panoramic
+			price_sdif =	80, // Price for Single Digital Image File
+			price_3dif =	200 // Price for Set of 3 Digital Image Files
+		} else {
+		// Set prices for A La Carte if NO Collection is selected
+
+		var price_4x6 =		35,	// Price for 4x6 Print
+			price_5x7 =		35, // Price for 5x7 Print
+			price_8x10 =	35, // Price for 8x10 Print
+			price_8x12 = 	40, // Price for 8x12 Panoramic
+			price_sdif =	120, // Price for Single Digital Image File
+			price_3dif =	300 // Price for Set of 3 Digital Image Files
+		}
+
 		if($(this).val() === '4x6 Print') {
-			$(this).parents('td').siblings().find('.alcprice').html('<span value="35">$35</span>');
+			$(this).parents('td').siblings().find('.alcprice').html('<span value="' + price_4x6 + '">$' + price_4x6 +'</span>');
 		} else if($(this).val() === '5x7 Print') {
-			$(this).parents('td').siblings().find('.alcprice').html('<span value="35">$35</span>');
+			$(this).parents('td').siblings().find('.alcprice').html('<span value="' + price_5x7 + '">$' + price_5x7 + '</span>');
 		} else if($(this).val() === '8x10 Print') {
-			$(this).parents('td').siblings().find('.alcprice').html('<span value="35">$35</span>');
+			$(this).parents('td').siblings().find('.alcprice').html('<span value="' + price_8x10 + '">$' + price_8x10 + '</span>');
 		} else if($(this).val() === '8x12 Panoramic') {
-			$(this).parents('td').siblings().find('.alcprice').html('<span value="40">$40</span>');
+			$(this).parents('td').siblings().find('.alcprice').html('<span value="' + price_8x12 + '">$' + price_8x12 + '</span>');
 		} else if($(this).val() === 'Single Digital Image File') {
-			$(this).parents('td').siblings().find('.alcprice').html('<span value="120">$120</span>');
+			$(this).parents('td').siblings().find('.alcprice').html('<span value="' + price_sdif + '">$' + price_sdif + '</span>');
 		} else if($(this).val() === 'Set of 3 Digital Image Files') {
-			$(this).parents('td').siblings().find('.alcprice').html('<span value="300">$300</span>');
+			$(this).parents('td').siblings().find('.alcprice').html('<span value="' + price_3dif + '">$' + price_3dif +'</span>');
 		} else {
 			return false;
 		}
@@ -195,12 +239,12 @@ $(function () {
 	}
 
 	function folioItems() {
-        var items = [];
+		var items = [];
 		$('.collection.active input[type="text"]').each(function(){
 			items.push($(this).val().toString());
 		});
-        return items.join(', ');
-    
+		return items.join(', ');
+	
 	}
 	
 	function order_list() {
@@ -274,6 +318,25 @@ $(function () {
 		$('#taxright').text("$" + tax.toFixed(2));
 		$('#totalright').text("$" + total.toFixed(2));
 	}
+
+	$('#addcoupon').click(function(e){
+		e.preventDefault();
+		if ($('#couponcode').val() == "couponcode200") {
+			$('#couponcode').val('Coupon successfully redeemed!');
+			$('#couponcode').css({'background': 'lightgreen', 'width': '100%', 'text-align': 'center', 'border': '0', 'line-height': '26px'});
+			$('#couponcode').attr('disabled', 'disabled');
+			$('#addcoupon').remove();
+			setTimeout(function(){
+				$('#couponcode').fadeOut(1000);
+				setTimeout(function(){
+					$('#couponcontainer').remove();
+				}, 1500);
+			}, 2000);
+		} else {
+			$('#couponcode').css('background', 'red');
+			$('#couponcode').attr('placeholder', 'Invalid coupon');
+		}
+	});
 	
 	$(window).change(function () {
 		set_max();
