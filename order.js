@@ -310,21 +310,18 @@ $(function () {
 			$('.totalitem.package').html('');
 		}
 	}
-	
-	function get_totals() {
-		var subtotal = package_totals() + alacarte_totals(),
-			tax = subtotal * 0.0675,
-			total = subtotal + tax;
-		$('#taxright').text("$" + tax.toFixed(2));
-		$('#totalright').text("$" + total.toFixed(2));
-	}
+
+	var coupon = 0;
 
 	$('#addcoupon').click(function(e){
 		e.preventDefault();
 		if ($('#couponcode').val() == "couponcode200") {
+			coupon = 200;
+			get_totals();
 			$('#couponcode').val('Coupon successfully redeemed!');
-			$('#couponcode').css({'background': 'lightgreen', 'width': '100%', 'text-align': 'center', 'border': '0', 'line-height': '26px'});
+			$('#couponcode').css({'background-color': '#5cb85c', 'width': '100%', 'text-align': 'center', 'border': '0', 'line-height': '26px', 'color': 'white', 'margin': '12px'});
 			$('#couponcode').attr('disabled', 'disabled');
+			$('#ordertotalinner').before('<tr style="width: 50%; margin: auto;"><td>Coupon</td><td style="float: right;">- $200.00</td></tr>');
 			$('#addcoupon').remove();
 			setTimeout(function(){
 				$('#couponcode').fadeOut(1000);
@@ -333,10 +330,23 @@ $(function () {
 				}, 1500);
 			}, 2000);
 		} else {
-			$('#couponcode').css('background', 'red');
-			$('#couponcode').attr('placeholder', 'Invalid coupon');
+			$('#couponcode').css({'border-color': '#d9534f'});
+			$('#couponcode').attr('placeholder', 'Invalid coupon code.');
+			$('#couponcode').val(null);
+			setTimeout(function(){
+				$('#couponcode').css({'border-color': 'initial'});
+				$('#couponcode').attr('placeholder', 'Coupon code');
+			}, 2000);
 		}
 	});
+	
+	function get_totals() {
+		var subtotal = package_totals() + alacarte_totals(),
+			tax = subtotal * 0.0675,
+			total = subtotal + tax - coupon;
+		$('#taxright').text("$" + tax.toFixed(2));
+		$('#totalright').text("$" + total.toFixed(2));
+	}
 	
 	$(window).change(function () {
 		set_max();

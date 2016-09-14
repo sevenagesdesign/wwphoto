@@ -13,6 +13,7 @@ body {
 
 input, textarea {
     font-size: 16px;
+    vertical-align: middle;
 }
 
 header {
@@ -258,7 +259,8 @@ th,td {
 }
 
 #ordertotalinner,
-#tax{
+#tax,
+#coupondisplay {
     width: 50%;
     margin: auto;
 }
