@@ -1,300 +1,323 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
-	<title>
-		Order Form
-	</title>
-	
-	<!-- Import required scripts -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="order.js"></script>
-	
-	<!-- Import stylesheets -->
-	
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"></link>
-	<link href="style.css" rel="stylesheet" type="text/css">
-	</link>
+    <title>
+        Order Form
+    </title>
+    <!-- Import required scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./order.js"></script>
+    <!-- Import stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"></link>
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    </link>
 </head>
 
 <body>
-	<header>
-		<div id="header-branding">
-			<p>
-				Walters & Walters
-			</p>    
-		</div>
-	</header>
-	<main>
-		<div class="content">
-			<div id="orderform">
-					<div class="step" id="collection">
-						<div class="steptitle">
-							<h3>
-								Choose your Collection
-							</h3>
-						</div>
-						<div class="instructions">
-							<p>
-								Select your desired collection and list your image selections for loose prints included with your collection. Image numbers can be found below each image on your proof sheet. Image numbers should be listed as the last 3 digits of the proof reference #.
-							</p>
-							<p>
-								<em>
-									Example:
-								</em> Image # 001_yourname_105 can be listed as simply "105"
-							</p>
-						</div>
-						<div id="collections">
-							<div class="collection" id="heirloom">
-								<h5 class="collectiontitle">
-									Heirloom Collection (50pg) <input class="collectionselector" type="checkbox" />
-								</h5>
-								<div class="packagemain">
-									<div class="packageinfo">
-										<h6>
-											Package Collections
-										</h6>
-										<h6>
-											Image #
-										</h6>
-									</div>
-									<div class="collectioninput">
-										<label>
-											<span>
-												8x10 Print for Folio
-											</span>
-											<input type="text">
-											</input>
-										</label>
-									</div>
-									<div class="collectioninput">
-										<label>
-											<span>
-												8x10 Print for Folio
-											</span>
-											<input type="text">
-											</input>
-										</label>
-									</div>
-									<p>
-										Includes digital file of all selected package prints.
-									</p>
-									<p class="discounttext">
-										Album collections qualify for 40% discount on all a-la-carte orders.
-									</p>
-								</div>
-							</div>
-							<div class="collection" id="signature">
-								<h5 class="collectiontitle">
-									Signature Collection (36pg) <input class="collectionselector" type="checkbox" />
-								</h5>
-								<div class="packagemain">
-									<div class="packageinfo">
-										<h6>
-											Package Collections
-										</h6>
-										<h6>
-											Image #
-										</h6>
-									</div>
-									<div class="collectioninput">
-										<label>
-											<span>
-												5x7 Prints (x5)
-											</span>
-											<input type="text">
-											</input>
-										</label>
-									</div>
-									<div class="collectioninput">
-										<input type="text">
-										<input type="text">
-										<input type="text">
-										<input type="text">
-										</input>
-										</input>
-										</input>
-										</input>
-									</div>
-									<p>
-										Includes digital file of all selected package prints.
-									</p>
-									<p class="discounttext">
-										Album collections qualify for 40% discount on all a-la-carte orders.
-									</p>
-								</div>
-							</div>
-							<div class="collection" id="keepsake">
-								<h5 class="collectiontitle">
-									Keepsake Collection (24pg) <input class="collectionselector" type="checkbox" />
-								</h5>
-								<div class="packagemain">
-									<div class="packageinfo">
-										<h6>
-											Package Collections
-										</h6>
-										<h6>
-											Image #
-										</h6>
-									</div>
-									<div class="collectioninput">
-										<label>
-											<span>
-												5x7 Prints (x3)
-											</span>
-											<input type="text">
-											</input>
-										</label>
-									</div>
-									<div class="collectioninput">
-										<input type="text">
-										</input>
-									</div>
-									<div class="collectioninput">
-										<input type="text">
-										</input>
-									</div>
-									<p class="discounttext">
-										Album collections qualify for 40% discount on all a-la-carte orders.
-									</p>
-								</div>
-							</div>
-							<div class="collection" id="no-album">
-								<h5 class="collectiontitle">
-									No Album <input class="collectionselector" type="checkbox" />
-								</h5>
-								<div class="packagemain">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="step" id="selection" style="display: none;">
-						<div class="steptitle">
-							<h3>
-								Select the Images for Your Album
-							</h3>
-						</div>
-						<div class="instructions">
-							<p>
-								Select the image numbers that you would like to feature in your album. Please select only image numbers to be included INSIDE the album.
-							</p>
-							<p>
-								<em>
-									*Albums are available in listed page counts only. You can select up to <span class="selectmax">0</span> images.
-								</em>
-							</p>
-						</div>
-						<div id="photoselect">
-						</div>
-						<div id="imgselectmax" style="text-align: center; color: red"><span id="selected">0</span>/<span class="selectmax">0</span></div>
-						<div id="openalc" class="ck-button">
-							<label>
-								<input type="checkbox" id="alctoggle">
-								<span>Add A La Carte to Order</span>
-							</label>
-						</div>
-					</div>
-					<div class="step" id="alacarte">
-						<div class="steptitle">
-							<h3>
-								A La Carte Selections
-							</h3>
-						</div>
-						<div class="instructions">
-							<p>
-								Indicate your a la carte selections. Image numbers can be found below each image on your proof sheet. Image numbers should be listed as the last 3 digits of the proof reference #
-							</p>
-							<p>
-								<em>
-									EXAMPLE:
-								</em> Image # 001_yourname_105 can be listed as simply "105."
-							</p>
-						</div>
-						<div id="alacarteform">
-							<table>
-								<tr>
-									<th>Image #</th>
-									<th>Size</th>
-									<th>Quantity</th>
-									<th>Unit Price</th>
-									<th>Total</th>
-								</tr>
-								<tr class="alcselection">
-									<td>
-										<input class="alcimg" type="text">
-									</td>
-									<td>
-										<select class="alcsize">
-											<option selected disabled>Select a Size</option>
-											<option disabled>---</option>
-											<option value="4x6 Print">4x6 Print</option>
-											<option value="5x7 Print">5x7 Print</option>
-											<option value="8x10 Print">8x10 Print</option>
-											<option value="8x12 Panoramic">8x12 Panoramic</option>
-											<option value="Single Digital Image File">Single Digital Image File</option>
-											<option value="Set of 3 Digital Image Files">Set of 3 Digital Image Files</option>
-										</select>
-									</td>
-									<td>
-										<input class="alcqty" type="number" min="0">
-									</td>
-									<td>
-										<span class="alcprice"></span>
-									</td>
-									<td>
-										<span class="alctotal"></span>
-									</td>
-									<td class="removealcblank"><i class="fa fa-minus-circle" style="color: red"></i></td>
-								</tr>
-								<tr id="alcmore">
-									<td id="alcmoreinner" colspan="5">
-										<button>
-											<i class="fa fa-plus-circle" style="margin-right: 5px;"></i>Add A La Carte Item</td>
-										</button>
-									</td>
-								</tr>
-							</table>
-						</div>
-					</div>
-					<div class="step">
-					</div>
-					<div class="step">
-					</div>
-			</div>
-			<div id="ordertotalwrapper">
-				<h3 id="ordertotaltitle">Your Order</h3>
-				<form>
-					<div id="ordertotalmain">
-						<table class="totalitem package">
-							
-						</table>
-						<table class="totalitem alctotals">
-							
-						</table>
-						<table id="ordertotal">
-							<tr id="tax">
-								<td id="taxleft">Tax</td>
-								<td id="taxright">$0.00</td>
-							</tr>
-							<tr id="ordertotalinner">
-								<td id="totalleft">Order Total</td>
-								<td id="totalright">$0.00</td>
-							</tr>
-						</table>
-					</div>
-				</form>
-				<div id="couponcontainer" style="width: 50%; margin: auto;">
-						<label>
-							<input id="couponcode" type="text" placeholder="Coupon code" style="line-height: 26px; padding: 0 10px;" />
-							<button id="addcoupon">Add coupon</button>
-						</label>
-				</div>
-			</div>
-		</div>
-		<div id="orderSubmit">
-			<button>Submit Order</button>
-		</div>
-	</main>
+    <header>
+        <div id="header-branding">
+            <p>
+                Walters & Walters
+            </p>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div id="orderform">
+                <div class="step" id="collection">
+                    <div class="steptitle">
+                        <h3>Choose your Collection</h3>
+                    </div>
+                    <div class="instructions">
+                        <p>
+                            Select your desired collection and list your image selections for loose prints included with your collection. Image numbers can be found below each image on your proof sheet. Image numbers should be listed as the last 3 digits of the proof reference #.
+                        </p>
+                        <p>
+                            <em>Example:</em> Image # 001_yourname_105 can be listed as simply "105"
+                        </p>
+                    </div>
+                    <div id="collections">
+                        <div class="collection" id="heirloom">
+                            <h5 class="collectiontitle">Heirloom Collection (50pg) <input class="collectionselector" type="checkbox" /></h5>
+                            <div class="packagemain">
+                                <div class="packageinfo">
+                                    <h6>Package Collections</h6>
+                                    <h6>Image #</h6>
+                                </div>
+                                <div class="collectioninput">
+                                    <label>
+                                        <span>8x10 Print for Folio</span>
+                                        <input type="text">
+                                        </input>
+                                    </label>
+                                </div>
+                                <div class="collectioninput">
+                                    <label>
+                                        <span>8x10 Print for Folio</span>
+                                        <input type="text">
+                                        </input>
+                                    </label>
+                                </div>
+                                <p>
+                                    Includes digital file of all selected package prints.
+                                </p>
+                                <p class="discounttext">
+                                    Album collections qualify for 40% discount on all a-la-carte orders.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collection" id="signature">
+                            <h5 class="collectiontitle">Signature Collection (36pg) <input class="collectionselector" type="checkbox" /></h5>
+                            <div class="packagemain">
+                                <div class="packageinfo">
+                                    <h6>Package Collections</h6>
+                                    <h6>Image #</h6>
+                                </div>
+                                <div class="collectioninput">
+                                    <label>
+                                        <span>5x7 Prints (x5)</span>
+                                        <input type="text">
+                                        </input>
+                                    </label>
+                                </div>
+                                <div class="collectioninput">
+                                    <input type="text">
+                                    <input type="text">
+                                    <input type="text">
+                                    <input type="text">
+                                    </input>
+                                    </input>
+                                    </input>
+                                    </input>
+                                </div>
+                                <p>
+                                    Includes digital file of all selected package prints.
+                                </p>
+                                <p class="discounttext">
+                                    Album collections qualify for 40% discount on all a-la-carte orders.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collection" id="keepsake">
+                            <h5 class="collectiontitle">Keepsake Collection (24pg) <input class="collectionselector" type="checkbox" /></h5>
+                            <div class="packagemain">
+                                <div class="packageinfo">
+                                    <h6>Package Collections</h6>
+                                    <h6>Image #</h6>
+                                </div>
+                                <div class="collectioninput">
+                                    <label>
+                                        <span>5x7 Prints (x3)</span>
+                                        <input type="text">
+                                        </input>
+                                    </label>
+                                </div>
+                                <div class="collectioninput">
+                                    <input type="text">
+                                    </input>
+                                </div>
+                                <div class="collectioninput">
+                                    <input type="text">
+                                    </input>
+                                </div>
+                                <p class="discounttext">
+                                    Album collections qualify for 40% discount on all a-la-carte orders.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collection" id="gift">
+                            <h5 class="collectiontitle">Gift Print Collection (12pg)<input class="collectionselector" type="checkbox" /></h5>
+                            <div class="packagemain">
+                                <div class="packageinfo">
+                                    <h6>Package Collections</h6>
+                                </div>
+                                <div class="collectioninput">
+                                    Includes 12 unmounted 5x7 prints of your choice. An ideal choice for gift giving.
+                                </div>
+                                <p class="discounttext">
+                                    Qualifies for discount pricing on any additional prints on the same order.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step" id="selection" style="display: none;">
+                    <div class="steptitle">
+                        <h3>Select the Images for Your Album</h3>
+                    </div>
+                    <div class="instructions">
+                        <p>
+                            Select the image numbers that you would like to feature in your album. Please select only image numbers to be included INSIDE the album.
+                        </p>
+                        <p>
+                            <em>*Albums are available in listed page counts only. You can select up to <span class="selectmax">0</span> images.</em>
+                        </p>
+                    </div>
+                    <div id="photoselect">
+                    </div>
+                    <div id="imgselectmax" style="text-align: center; color: red"><span id="selected">0</span>/<span class="selectmax">0</span></div>
+                    <div id="openalc" class="ck-button">
+                        <label>
+                            <input type="checkbox" id="alctoggle">
+                            <span>Add A La Carte to Order</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="step" id="alacarte">
+                    <div class="steptitle">
+                        <h3>A La Carte Selections</h3>
+                    </div>
+                    <div class="instructions">
+                        <p>
+                            Indicate your a la carte selections. Image numbers can be found below each image on your proof sheet. Image numbers should be listed as the last 3 digits of the proof reference #
+                        </p>
+                        <p>
+                            <em>EXAMPLE:</em> Image # 001_yourname_105 can be listed as simply "105."
+                        </p>
+                    </div>
+                    <div id="alacarteform">
+                        <table>
+                            <tr>
+                                <th>Image #</th>
+                                <th>Size</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Total</th>
+                            </tr>
+                            <tr class="alcselection">
+                                <td>
+                                    <input class="alcimg" type="text">
+                                </td>
+                                <td>
+                                    <select class="alcsize">
+                                        <option selected disabled>Select a Size</option>
+                                        <option disabled>---</option>
+                                        <option value="4x6 Print">4x6 Print</option>
+                                        <option value="5x7 Print">5x7 Print</option>
+                                        <option value="8x10 Print">8x10 Print</option>
+                                        <option value="8x12 Panoramic">8x12 Panoramic</option>
+                                        <option value="Single Digital Image File">Single Digital Image File</option>
+                                        <option value="Set of 3 Digital Image Files">Set of 3 Digital Image Files</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input class="alcqty" type="number" min="0">
+                                </td>
+                                <td>
+                                    <span class="alcprice"></span>
+                                </td>
+                                <td>
+                                    <span class="alctotal"></span>
+                                </td>
+                                <td class="removealc"><i class="fa fa-minus-circle" style="color: red"></i></td>
+                            </tr>
+                            <tr id="alcmore">
+                                <td id="alcmoreinner" colspan="5">
+                                    <button>
+                                        <i class="fa fa-plus-circle" style="margin-right: 5px;"></i>Add A La Carte Item</td>
+                                </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="step">
+                </div>
+                <div class="step">
+                </div>
+            </div>
+            <div id="ordertotalwrapper" class="ordertotalbox">
+                <h3 class="ordertotaltitle">Your Order</h3>
+                <form>
+                    <div id="ordertotalmain">
+                        <table class="totalitem package">
+                        </table>
+                        <table class="totalitem alctotals">
+                        </table>
+                        <table id="ordertotal">
+                            <tr id="tax">
+                                <td id="taxleft">Tax</td>
+                                <td id="taxright">$0.00</td>
+                            </tr>
+                            <tr id="ordertotalinner">
+                                <td id="totalleft">Order Total</td>
+                                <td id="totalright">$0.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+                <div id="couponcontainer" style="width: 50%; margin: auto; text-align: center;">
+                    <label>
+                        <input id="couponcode" type="text" placeholder="Coupon code" style="line-height: 26px; padding: 0 10px; width: 100%;" /><br>
+                    </label>
+                    <button id="addcoupon">Add coupon</button>
+                </div>
+            </div>
+            <div id="contactinfo" class="ordertotalbox">
+                <h3 class="ordertotaltitle">Contact Information</h3>
+                <form>
+                    <div>
+                        <label class="inlineform">
+                            <input class="dbt" name="debutante" type="text" required /><br />Debutante
+                        </label>
+                        <label class="inlineform">
+                            <input class="dbt" name="debNumber" type="text" required /><br />Debutante #
+                        </label>
+                    </div>
+                    <h5>Ship to:</h5>
+                    <div>
+                        <label class="inlineform">
+                            <input class="name" name="firstName" type="text" required /><br />First Name
+                        </label>
+                        <label class="inlineform">
+                            <input class="name" name="lastName" type="text" required /><br />Last Name
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input id="street" name="streetAddress" type="text" required /><br />Street Address
+                        </label>
+                    </div>
+                    <div>
+                        <label class="inlineform">
+                            <input id="city" name="city" type="text" required /><br />City
+                        </label>
+                        <label class="inlineform">
+                            <input id="state" name="state" type="text" required /><br />State
+                        </label>
+                        <label class="inlineform">
+                            <input id="zip" name="zipcode" type="text" required /><br />Zip
+                        </label>
+                    </div>
+                    <div>
+                        <label class="inlineform">
+                            (<input id="phone1" name="phone1" type="text" required />) <input id="phone2" name="phone2" type="text" required />-<input id="phone3" name="phone3" type="text" required /><br />Phone
+                        </label>
+                        <label class="inlineform">
+                            <input id="email" name="email" type="email" required /><br />Email
+                        </label>
+                    </div>
+                    <h5>Ship/Pickup:</h5>
+                    <div>
+                        <label>
+                            <input type="radio" name="shippickup" data="Ship Order" value="Ship order">Ship to you<br>
+                            <input type="radio" name="shippickup" data="Studio Pickup" value="Studio pickup">Studio pickup in Raleigh
+                        </label>
+                    </div>
+                    <h5>Payment Options:</h5>
+                        <label>
+                            <input id="Invoice" type="radio" name="payment" data="Online Invoice" value="Online Invoice" />Receive online invoice<br />
+                            <input id="Check" type="radio" name="payment" data="Pay by Check" value="Pay by Check" />Send a check for total amount
+                        </label>
+                </form>
+            </div>
+        </div>
+        <div id="orderSubmit">
+            <button>Submit Order</button>
+        </div>
+    </main>
 </body>
 
 </html>

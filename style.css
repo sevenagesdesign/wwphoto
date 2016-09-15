@@ -44,8 +44,9 @@ main {
     width: 100%;
 }
 
-#ordertotalwrapper {
+.ordertotalbox {
     border: 1px solid rgba(0,0,0,.1);
+    margin-top: 32px;
 }
 
 #collections {
@@ -235,7 +236,7 @@ th,td {
  * Order totals
  */
 
-#ordertotaltitle {
+.ordertotaltitle {
     height: 50px;
     line-height: 50px;
     margin: 0;
@@ -392,4 +393,59 @@ button {
 
 button:hover {
     background-color: #25ED33;
+}
+
+#contactinfo div {
+    margin-top: 15px;
+}
+
+#contactinfo form {
+    width: 360px;
+    margin: 32px auto;
+}
+
+#contactinfo label {
+    text-align: center;
+}
+
+.inlineform {
+    display: inline-block;
+}
+
+input.name,
+input.dbt {
+    width: 170px;
+}
+
+input#street {
+    width: 350px;
+}
+
+input#city {
+    width: 245px;
+}
+
+input#state {
+    width: 35px;
+    text-align: center;
+}
+
+input#zip {
+    width: 50px;
+}
+
+input#phone1,
+input#phone2 {
+    width: 30px;
+    text-align: center;
+}
+
+input#phone3 {
+    width: 40px;
+    text-align: center;
+}
+
+input#email {
+    margin-left: 10px;
+    width: 200px;
 }
