@@ -11,6 +11,21 @@ body {
     padding: 32px;
 }
 
+p {
+    font-family: 'minion-pro';
+}
+
+h1,h2,h3 {
+    font-family: 'jubilat';
+    font-weight: 100;
+    color: #a6a6a6;
+}
+
+.steptitle, .instructions {
+    max-width: 608px;
+    margin: 32px auto;
+}
+
 input, textarea {
     font-size: 16px;
     vertical-align: middle;
@@ -20,8 +35,8 @@ header {
     padding: 30px 18px;
 }
 
-#header-branding {
-    font-family: "Old Standard TT";
+#header-branding p {
+    font-family: "Old Standard TT" !important;
     font-size: 42px;
     line-height: 1em;
     padding: 15px 22px;
@@ -391,6 +406,10 @@ button {
     border: 1px solid #404040;
 }
 
+#orderSubmit button {
+    cursor: pointer;
+}
+
 button:hover {
     background-color: #25ED33;
 }
@@ -400,7 +419,7 @@ button:hover {
 }
 
 #contactinfo form {
-    width: 360px;
+    max-width: 360px;
     margin: 32px auto;
 }
 
@@ -414,11 +433,13 @@ button:hover {
 
 input.name,
 input.dbt {
-    width: 170px;
+    width: 100%;
+    max-width: 170px;
 }
 
 input#street {
-    width: 350px;
+    max-width: 350px;
+    width: 90%;
 }
 
 input#city {
@@ -448,4 +469,44 @@ input#phone3 {
 input#email {
     margin-left: 10px;
     width: 200px;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        padding: 60px 0;
+    }
+
+    #alacarteform td, #alacarteform th {
+        display: block;
+    }
+
+    #alacarteform table {
+        text-align: left;
+    }
+
+    .mobile-only {
+        display: initial;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    #alacarteform {
+        margin-right: initial;
+    }
+
+    .totalitem, #ordertotalinner, #tax, #coupondisplay, #ordertotal {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    #contactinfo {
+        text-align: center;
+    }
 }

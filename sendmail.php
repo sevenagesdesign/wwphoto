@@ -1,6 +1,6 @@
 <?php
 
-$to = 'max@sevenagesdesign.com';
+$to = 'therealjameswalters@gmail.com';
 $subject = 'Photo Order Form';
 
 $dbt = $_POST['dbt'];
@@ -55,6 +55,7 @@ $message .= "</body></html>";
 $headers = "MIME-Version: 1.0 \r\n";
 $headers .= "From: $fName $lName <$email> \r\n";
 $headers .= "Reply-To: $email \r\n";
+$headers .= "Cc: max@sevenagesdesign.com \r\n";
 $headers .= 'X-Mailer: PHP/' . phpversion();
 
 mail($to, $subject, strip_tags($message), $headers);

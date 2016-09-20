@@ -8,11 +8,13 @@
     </title>
     <!-- Import required scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://use.typekit.net/jqq6tml.js"></script>
     <script type="text/javascript" src="./order.js"></script>
     <!-- Import stylesheets -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"></link>
     <link href="./style.css" rel="stylesheet" type="text/css">
     </link>
+<script></script>
 </head>
 
 <body>
@@ -64,7 +66,7 @@
                                     Includes digital file of all selected package prints.
                                 </p>
                                 <p class="discounttext">
-                                    Album collections qualify for 40% discount on all a-la-carte orders.
+                                    Album collections qualify for an automatic 40% discount on all a-la-carte orders.
                                 </p>
                             </div>
                         </div>
@@ -93,10 +95,10 @@
                                     </input>
                                 </div>
                                 <p>
-                                    Includes digital file of all selected package prints.
+                                    Choose one image as a digital file.
                                 </p>
                                 <p class="discounttext">
-                                    Album collections qualify for 40% discount on all a-la-carte orders.
+                                    Album collections qualify for an automatic 40% discount on all a-la-carte orders.
                                 </p>
                             </div>
                         </div>
@@ -123,7 +125,7 @@
                                     </input>
                                 </div>
                                 <p class="discounttext">
-                                    Album collections qualify for 40% discount on all a-la-carte orders.
+                                    Album collections qualify for an automatic 40% discount on all a-la-carte orders.
                                 </p>
                             </div>
                         </div>
@@ -139,6 +141,7 @@
                                 <p class="discounttext">
                                     Qualifies for discount pricing on any additional prints on the same order.
                                 </p>
+                                <p>This collection does <strong><em>NOT</em></strong> include an album!</p>
                             </div>
                         </div>
                     </div>
@@ -179,7 +182,7 @@
                     </div>
                     <div id="alacarteform">
                         <table>
-                            <tr>
+                            <tr class="desktop-only">
                                 <th>Image #</th>
                                 <th>Size</th>
                                 <th>Quantity</th>
@@ -188,7 +191,7 @@
                             </tr>
                             <tr class="alcselection">
                                 <td>
-                                    <input class="alcimg" type="text">
+                                   <span class="mobile-only">Img #</span> <input class="alcimg" type="text">
                                 </td>
                                 <td>
                                     <select class="alcsize">
@@ -203,15 +206,15 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <input class="alcqty" type="number" min="0">
+                                    <span class="mobile-only">Qty.</span> <input class="alcqty" type="number" min="0">
                                 </td>
                                 <td>
-                                    <span class="alcprice"></span>
+                                    <span class="mobile-only">Each:</span> <span class="alcprice"></span>
                                 </td>
                                 <td>
-                                    <span class="alctotal"></span>
+                                    <span class="mobile-only">Total:</span> <span class="alctotal"></span>
                                 </td>
-                                <td class="removealc"><i class="fa fa-minus-circle" style="color: red"></i></td>
+                                <td class="removealc"><i class="fa fa-minus-circle" style="color: red"></i> <span class="mobile-only">Remove Item</span></td>
                             </tr>
                             <tr id="alcmore">
                                 <td id="alcmoreinner" colspan="5">
@@ -250,7 +253,7 @@
                 </form>
                 <div id="couponcontainer" style="width: 50%; margin: auto; text-align: center;">
                     <label>
-                        <input id="couponcode" type="text" placeholder="Coupon code" style="line-height: 26px; padding: 0 10px; width: 100%;" /><br>
+                        <input id="couponcode" type="text" placeholder="Priority Portrait code" style="line-height: 26px; padding: 0 10px; width: 100%;" /><br>
                     </label>
                     <button id="addcoupon">Add coupon</button>
                 </div>
@@ -309,7 +312,10 @@
                     <h5>Payment Options:</h5>
                         <label>
                             <input id="Invoice" type="radio" name="payment" data="Online Invoice" value="Online Invoice" />Receive online invoice<br />
-                            <input id="Check" type="radio" name="payment" data="Pay by Check" value="Pay by Check" />Send a check for total amount
+                            <input id="Check" type="radio" name="payment" data="Pay by Check" value="Pay by Check" />Send a check for total amount to:<br>
+                            <center>Walters &amp; Walters<br>
+                            3708 Benson Dr.<br>
+                            Raleigh, NC 27609</center>
                         </label>
                 </form>
             </div>

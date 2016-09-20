@@ -1,6 +1,9 @@
 $(document).ready(function () {
 	"use strict";
 
+	// Load Typekit
+	try{Typekit.load({ async: true });}catch(e){}
+
 	var totalAvailable = 130; // Set total number of album images available
 	var setCouponCode = "couponcode200"; // Sets the coupon code
 	var setCouponDiscount = 200; // Sets amount coupon takes off order
@@ -179,7 +182,7 @@ $(document).ready(function () {
 	$('#alcmore button').click(function () {
 		$(this).parents('#alcmore').before(
 			"<tr class='alcselection'>" +
-			"<td><input class='alcimg' type='text'></td>" +
+			"<td># <input class='alcimg' type='text'></td>" +
 			"<td><select class='alcsize'>" +
 			"<option selected disabled>Select a Size</option>" +
 			"<option disabled>---</option>" +
@@ -190,7 +193,7 @@ $(document).ready(function () {
 			"<option value='Single Digital Image File'>Single Digital Image File</option>" +
 			"<option value='Set of 3 Digital Image Files'>Set of 3 Digital Image Files</option>" +
 			"</select></td>" +
-			"<td><input class='alcqty' type='number' min='0'></td>" +
+			"<td>Qty. <input class='alcqty' type='number' min='0'></td>" +
 			"<td><span class='alcprice'></span></td>" +
 			"<td><span class='alctotal'></span></td>" +
 			"<td class='removealc'><i class='fa fa-minus-circle' style='color: red'></i></td>" +
@@ -348,7 +351,7 @@ $(document).ready(function () {
 		if ($('#couponcode').val() == setCouponCode && $('.collection').hasClass('active')) {
 			coupon = setCouponDiscount;
 			get_totals();
-			$('#couponcode').val('Coupon successfully redeemed!');
+			$('#couponcode').val('Code successfully redeemed!');
 			$('#couponcode').css({'background-color': '#5cb85c', 'width': '100%', 'text-align': 'center', 'border': '0', 'line-height': '26px', 'color': 'white', 'margin': '12px'});
 			$('#couponcode').attr('disabled', 'disabled');
 			$('#ordertotalinner').before('<tr style="width: 50%; margin: auto;"><td>Coupon</td><td id="coupondiscount" style="float: right;">' +
@@ -363,14 +366,14 @@ $(document).ready(function () {
 		} else {
 			$('#couponcode').css({'border-color': '#d9534f'});
 			if ($('#couponcode').val != setCouponCode && $('.collection').hasClass('active')){
-				$('#couponcode').attr('placeholder', 'Invalid coupon code.');
+				$('#couponcode').attr('placeholder', 'Invalid code.');
 			} else {
-				$('#couponcode').attr('placeholder', 'Coupon not valid for this order.');
+				$('#couponcode').attr('placeholder', 'Code not valid for this order.');
 			}
 			$('#couponcode').val(null);
 			setTimeout(function(){
 				$('#couponcode').css({'border-color': 'initial'});
-				$('#couponcode').attr('placeholder', 'Coupon code');
+				$('#couponcode').attr('placeholder', 'Priority Portrait code');
 			}, 2000);
 		}
 	});
@@ -480,11 +483,13 @@ $(document).ready(function () {
 	function validateCollection() {
 		var success = true;
 
-		$('.collection.active input[type="text"').each(function(){
+		$('.collection.active input[type="text"]').each(function(){
 			if($(this).val() == "") {
 				$(this).first().focus();
+				$(this).css('border-color', '#d9534f');
 				success = false;
-				return success;
+			} else {
+				$(this).css('border-color', 'initial');
 			}
 		});
 
@@ -494,10 +499,13 @@ $(document).ready(function () {
 	function validateContact() {
 		var success = true;
 
-		$('#contactinfo input[type="text"').each(function(){
+		$('#contactinfo input[type="text"], #contactinfo input[type="email"]').each(function(){
 			if($(this).val() == "") {
-				$(this).first().focus();
+				$(this).focus();
+				$(this).css('border-color', '#d9534f');
 				success = false;
+			} else {
+				$(this).css('border-color', 'initial');
 			}
 		});
 
@@ -506,10 +514,11 @@ $(document).ready(function () {
 
 	$('#orderSubmit > button').click(function () {
 		
-		if (validateCollection() == false) {
+		if (validateCollection() == false || validateContact() == false) {
 			return false;
 		} else {
-			return false;
+			alert("An email will send on the live version.");
+			// sendEmail();
 		}
 	});
 });
